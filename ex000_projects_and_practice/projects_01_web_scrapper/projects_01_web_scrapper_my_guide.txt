@@ -1,0 +1,52 @@
+Guide and summary for the different libraries with the help of chatGPT
+
+Here's an overview of the libraries we will be using:
+
+    - Requests is a Python library used for making HTTP requests. We will use it to retrieve the HTML content of the web page we want to scrape.
+
+    - Beautifulsoup4 is a Python library for parsing HTML and XML documents. We will use it to extract the links to different posts from the HTML content we retrieved with requests.
+
+    - Inflection is a Python library for transforming words. We will use it to clean up the post titles extracted with beautifulsoup4.
+
+
+Guide to code:
+
+    - We use the requests.get() function to make an HTTP GET request to the http://www.dailysmarty.com/topics/python URL. The response object contains the HTML content of the web page.
+
+    - We use the BeautifulSoup() function from beautifulsoup4 to parse the HTML content into a BeautifulSoup object. This allows us to easily navigate and search the HTML document.
+
+    - We use the find_all() method of the BeautifulSoup object to extract all links with the post-link class. This gives us a list of BeautifulSoup Tag objects that represent the links to different posts.
+
+    - Finally, we use the titleize() function from inflection to clean up the text of each link and print it to the console.
+
+Answers to Questions I had:
+
+- Why do you take 2 steps to get the HTML code here?
+  response = requests.get('http://www.dailysmarty.com/topics/python')
+  html_content = response.content
+
++ When we make an HTTP request with requests.get() method, we get a Response object that contains the server's response to the request. This response object has a content attribute which contains the raw HTML content of the web page as bytes.
+
+In order to extract information from the HTML content, we need to convert the bytes to a string. We can do this using the decode() method, which converts the bytes to a string using the specified character encoding.
+
+Alternatively, we can access the text attribute of the response object, which returns the HTML content as a string, already decoded using the server's declared character encoding.
+
+So in summary, we use response.content to retrieve the raw HTML content of the web page as bytes. We then pass this content to BeautifulSoup for parsing. If you prefer, you can use response.text instead, which returns the HTML content as a decoded string.
+
+
+
+- can you explain what happens here aswell? soup = BeautifulSoup(html_content, 'html.parser')
+
++ In the code line soup = BeautifulSoup(html_content, 'html.parser'), we are using the BeautifulSoup constructor to create a new BeautifulSoup object from the HTML content we retrieved from the web page using the requests library.
+
+The BeautifulSoup constructor takes two arguments:
+
+    The HTML content as a string or bytes object
+    The name of the parser we want to use to parse the HTML content.
+
+In this case, we are using the 'html.parser' parser, which is included with Python's standard library. This parser is a robust and fast parser that can handle most types of HTML and XML documents.
+
+When we call BeautifulSoup(html_content, 'html.parser'), the constructor creates a new BeautifulSoup object and parses the HTML content using the specified parser. The resulting object contains a tree-like representation of the HTML document, which we can navigate and search using the methods and properties provided by BeautifulSoup.
+
+Overall, using BeautifulSoup makes it easy to parse and extract information from HTML documents, allowing us to build powerful web scraping tools with Python.
+ 
