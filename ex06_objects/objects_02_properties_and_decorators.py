@@ -20,8 +20,9 @@ class Invoice:
     def total(self):
         return self.__total
 
-    # The properties take care of our getters, but we need to protect the stuff.
-    # We do this by establishing specific functions for setting values with .setter
+    # If set this and we leave it here, the properties will be able to be checked, but not changed.
+
+    # If we want to be able to change the value, we need to stablish a '.setter' function specifically.
     
     @client.setter
     def client(self, client):
