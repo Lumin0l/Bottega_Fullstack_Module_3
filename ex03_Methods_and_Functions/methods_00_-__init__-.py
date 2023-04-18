@@ -28,7 +28,31 @@ print(f'raw: {snapchat}')
 print(google.formatter())
 print(snapchat.formatter())
 
-    
+# CONTINUATION #
+
+# Python doesn't have private/protected methods. You need to do it with Dunder (__xx__) methods.
+# Dunder methods are methods given from the python language and you can use it as is intended.
+
+# Let's explain Dunder String:
+print('\nNew Lesson\n')
+
+class Invoice:
+    def __str__(self):
+        return 'This is the invoiceclass!'
+
+inv = Invoice() # The __str__ method checks out the content of a class as a string
+print(str(inv))
+
+class Invoice:
+    def __init__(self, client, total):
+        self.client = client
+        self.total = total
+
+    def __str__(self):
+        return f'Invoice from {self.client} for {self.total} dollars'
+
+inv = Invoice('Google', 500) # We normally create the str function to receive visual feedback on the class.
+print(str(inv)) # By creating the __str__ method, we can call it whenever we want to see  or debug.
 
 
 
