@@ -1,6 +1,6 @@
 # Exercise number 1 on the flask API course
 
-from flask import Flask
+from flask import Flask, request, jsonify # we added the second 2 to deal with the requests
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
@@ -45,6 +45,25 @@ class GuideSchema(ma.Schema):
 guide_schema = GuideSchema()
 guides_schema = GuideSchema(many=True)
 
+# Now let's start making guides
+
+# First of all, the decorator
+@app.route('/guide', methods=["POST"]) # we are creating an end point with the verb (HTTP key) of 'Post'
+def add_guide():
+    # First we grab the values
+    title = request.json['title']
+    content = request.json['content']
+
+    new_guide = Guide(title, content) # we create a new var and we assign it the class with the values
+
+    db.session.add(new_guide)
+    db.session.commit() # this is a method that opens a route there and stores data
+
+    guide = Guide.query.get(new_guide.id)
+
+    return guide_schema.jsonify(guide)
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
