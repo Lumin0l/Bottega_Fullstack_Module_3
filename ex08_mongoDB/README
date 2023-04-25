@@ -1,3 +1,13 @@
 <h1>Attention: differences with course</h1>
 
-in my pc, instead of running the mongo daemon with "mongod" I need to use "mongosh" - as for mongo-shell, I guess. Then the commands shown in the guides work.
+<p>In my pc, instead of running the mongo daemon with "mongod" I need to use "mongosh" - as for mongo-shell, I guess. Then the commands shown in the guides work.</p>
+
+<p>Some usefull commands to start or close the mongo daemon:
+	- Start the daemon: 		sudo systemctl start mongod
+	- Reload the daemon: 		sudo systemctl daemon-reload
+	- Verify that it has started:	sudo systemctl status mongod
+	- Stop mongodb:			sudo systemctl stop mongod
+	- Restart a Mongod process:	sudo systemctl restart mongod
+
+
+
