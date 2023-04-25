@@ -12,4 +12,6 @@ db.createUser({
   ]
 })
 
-/* To visualize the users we use: db.getUsers() and to delete a user db.dropUser('name_of_user')
+/* To visualize the users we use: db.getUsers() and to delete a user db.dropUser('name_of_user') */
+
+/* To create a collection we use: db.createCollection('name_of_collection') and to see it: show collections */ 
