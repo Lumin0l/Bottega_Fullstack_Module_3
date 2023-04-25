@@ -1,0 +1,3 @@
+<h1>Attention: differences with course</h1>
+
+in my pc, instead of running the mongo daemon with "mongod" I need to use "mongosh" - as for mongo-shell, I guess. Then the commands shown in the guides work.
