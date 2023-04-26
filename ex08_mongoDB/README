@@ -7,7 +7,10 @@
 	- Reload the daemon: 		sudo systemctl daemon-reload
 	- Verify that it has started:	sudo systemctl status mongod
 	- Stop mongodb:			sudo systemctl stop mongod
-	- Restart a Mongod process:	sudo systemctl restart mongod
+	- Restart a Mongod process:	sudo systemctl restart mongod</p>
 
-
+<p>For some reason I get an error when I try to use it as default, need to run these commands first
+	- sudo chown -R mongodb:mongodb /var/lib/mongodb
+	- sudo chown mongodb:mongodb /tmp/mongodb-27017.sock
+	- sudo service mongod restart</p>
 
