@@ -91,5 +91,27 @@ db.books.find(
   ).pretty() // This way we will only get the elements we flagged with 1.
 // In SQL "SELECT name, authors FROM books WHERE name = 'Confident Ruby'"
 
+/* Query for a nested array, only requesting some elements from an object */
+// Let's insert another element:
+db.books.insert({
+  "name": "Blink",
+  "publishedDate": new Date(),
+  "authors": [
+    { "name": "Malcolm Gladwell" },
+    { "name": "Ghost Writer" }
+  ]
+});
+
+// Now let's look for it with the "find" function and the "slice" functionality we saw in python:
+db.books.find(
+  {
+    name: "Blink"
+  },
+  {
+    publishedDate: 1,
+    name: 1,
+    authors: { $slice: 1 } // This will use slice with the index 1, because in the end of the day authors in the dictionary is just an array.
+  }
+).pretty()
 
 
