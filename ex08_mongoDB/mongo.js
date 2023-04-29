@@ -72,6 +72,8 @@ db.books.find().pretty() // This will return every book we created. With pretty 
 
 // In SQL this would be "SELECT * from books"
 
+/* Select a particular document */
+db.books.find( {name: "OOP Programming"} ).pretty() // So you use the find function and you introduce the object.
 
-
+// In SQL this would be "SELECT * from books WHERE name = "OOP Programming"" 
 
