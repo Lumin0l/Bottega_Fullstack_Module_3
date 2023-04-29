@@ -66,7 +66,11 @@ db.books.insertMany([
 
 ])
 
+/* Find methods and SQL equivalents */
 
+db.books.find().pretty() // This will return every book we created. With pretty it will be better formated.
+
+// In SQL this would be "SELECT * from books"
 
 
 
