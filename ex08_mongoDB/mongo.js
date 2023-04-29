@@ -77,3 +77,19 @@ db.books.find( {name: "OOP Programming"} ).pretty() // So you use the find funct
 
 // In SQL this would be "SELECT * from books WHERE name = "OOP Programming"" 
 
+
+/* MongoDB projections */
+db.books.find(
+	{
+	    name: "Confident Ruby"
+	}, 
+	// This thing up there will bring all atributes, but if we want extra atributes we need to specify:
+	{
+	    name: 1,
+	    pubishedDate:1,
+	} 
+  ).pretty() // This way we will only get the elements we flagged with 1.
+// In SQL "SELECT name, authors FROM books WHERE name = 'Confident Ruby'"
+
+
+
