@@ -114,4 +114,8 @@ db.books.find(
   }
 ).pretty()
 
+/* How to delete stuff */
+// Several ways:
+db.books.find({name: "OOP Programming"}) // This will delete everything.
+db.books.remove({name: "OOP Programming"}, 1) // This removes a single document.
 
