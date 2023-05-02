@@ -134,4 +134,8 @@ db.books.find(
 // This will limit the output to the key stablished with the "authors.name"
 
 
+/* FindOne functionality */
+db.books.findOne({name: "Blink"}) // this will only return the single element.
+
+
 
