@@ -142,4 +142,5 @@ db.books.findOne({name: "Blink"}) // this will only return the single element.
 // This allows us to find stuff on similarity bases, not exact things.
 db.books.findOne({ name: /.*whatever content.*/i }) // this will restrict the search. The '/' signify a regular expresion in a string. The '.*' we stablish the search order (like *.c). The 'i' makes it case insensitive.
 
-
+/* Checking if a field exists */
+db.books.find({ reviews: { $exists: true }}) // basically the '$exists' part, the rest is our particular example.
