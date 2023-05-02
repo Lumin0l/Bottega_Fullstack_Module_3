@@ -119,3 +119,19 @@ db.books.find(
 db.books.find({name: "OOP Programming"}) // This will delete everything.
 db.books.remove({name: "OOP Programming"}, 1) // This removes a single document.
 
+
+/* How to include nested divs in a find query */
+db.books.find(
+    {
+	name: "Blink"
+    },
+    {
+	name: 1,
+	publishedDate: 1,
+	"authors.name": 1
+    }
+).pretty() 
+// This will limit the output to the key stablished with the "authors.name"
+
+
+
